@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AddressRequest.Models
+namespace AddressProvider.Models
 {
     public class Cidade_info
     {

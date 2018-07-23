@@ -1,12 +1,12 @@
-﻿using AddressRequest.Models;
+﻿using AddressProvider.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AddressRequest.Extensions;
-using AddressRequest.Models.TargetLock;
+using AddressProvider.Extensions;
+using AddressProvider.Models.TargetLock;
 
-namespace AddressRequest
+namespace AddressProvider
 {
     public class AddressData
     {

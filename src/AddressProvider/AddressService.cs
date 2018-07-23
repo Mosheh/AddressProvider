@@ -1,6 +1,6 @@
-﻿using AddressRequest.Models;
-using AddressRequest.Models.TargetLock;
-using AddressRequest.Models.ViaCEP;
+﻿using AddressProvider.Models;
+using AddressProvider.Models.TargetLock;
+using AddressProvider.Models.ViaCEP;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -11,7 +11,7 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace AddressRequest
+namespace AddressProvider
 {
     public class AddressService
     {

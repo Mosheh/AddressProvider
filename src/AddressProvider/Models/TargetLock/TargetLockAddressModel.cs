@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AddressRequest.Models.TargetLock
+namespace AddressProvider.Models.TargetLock
 {
     internal class TargetLockAddressModel
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace AddressRequest.Models
+namespace AddressProvider.Models
 {
     public class Estado_info
     {

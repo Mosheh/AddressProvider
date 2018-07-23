@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace AddressRequest.Extensions
+namespace AddressProvider.Extensions
 {
     public static class Conversions
     {

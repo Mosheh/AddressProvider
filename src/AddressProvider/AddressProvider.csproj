@@ -1,7 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>AddressProvider</PackageId>
+    <Title>Address Provider</Title>
+    <Version>1.0.0</Version>
+    <Authors>Moisés José Miranda</Authors>
+    <Company>BR GAAP Empresarial</Company>
+    <Description>Get address information via zip code. Support for United States Of American, Brazil</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Copyright>BR GAAP Empresarial (c)</Copyright>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Mosheh/AddressProvider/wiki</PackageProjectUrl>
+    <PackageIconUrl>https://image.ibb.co/eKO3eT/addresslocation.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Mosheh/AddressProvider</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Get address information.
+.net standard and core</PackageReleaseNotes>
+    <PackageTags>Get address information via zip code with support for United States Of American and Brazil</PackageTags>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\AddressProvider.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

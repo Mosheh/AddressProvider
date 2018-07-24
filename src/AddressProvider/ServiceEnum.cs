@@ -12,7 +12,7 @@ namespace AddressProvider
         /// </summary>
         Postmon,
         /// <summary>
-        /// Brazil address
+        /// Brazil addresses
         /// </summary>
         ViaCEP,
         /// <summary>

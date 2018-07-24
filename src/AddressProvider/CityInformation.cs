@@ -5,6 +5,9 @@ using System.Text;
 
 namespace AddressProvider
 {
+    /// <summary>
+    /// Information about city
+    /// </summary>
     public class CityInformation
     {
         public decimal AreaKm2 { get; set; }

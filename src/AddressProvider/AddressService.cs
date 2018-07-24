@@ -13,8 +13,16 @@ using System.Text;
 
 namespace AddressProvider
 {
+    /// <summary>
+    /// Service for request information about any address
+    /// </summary>
     public class AddressService
     {
+        /// <summary>
+        /// Constructor with definition provider
+        /// </summary>
+        /// <param name="service">Service provider</param>
+        /// <param name="checkInternetConnection">Checks for internet connection</param>
         public AddressService(ServiceEnum service, bool checkInternetConnection = false)
         {
             Service = service;
@@ -24,7 +32,11 @@ namespace AddressProvider
             ServicesUri.Add(ServiceEnum.ViaCEP, "http://viacep.com.br/ws/{0}/json");
             ServicesUri.Add(ServiceEnum.TargetLock, "https://api.targetlock.io/v1/post-code/{0}");
         }
-
+        /// <summary>
+        /// Get address information
+        /// </summary>
+        /// <param name="zipCode">Zip code</param>
+        /// <returns></returns>
         public AddressData GetAddress(string zipCode)
         {
             CheckConnection();
@@ -131,7 +143,11 @@ namespace AddressProvider
                 }
             }
         }
-
+        /// <summary>
+        /// Remove trace character 
+        /// </summary>
+        /// <param name="zipCode"></param>
+        /// <returns></returns>
         public string RemoveCaracter(string zipCode)
         {
             zipCode = zipCode.Replace("-", "");
@@ -139,6 +155,11 @@ namespace AddressProvider
             return zipCode;
         }
 
+        /// <summary>
+        /// Valid lenth for eight position
+        /// </summary>
+        /// <param name="zipCode"></param>
+        /// <returns></returns>
         public bool ValidQuantityCaracter(string zipCode)
         {
             var zip = RemoveCaracter(zipCode);
@@ -150,6 +171,11 @@ namespace AddressProvider
         {
 
         }
+
+        /// <summary>
+        /// Checks for internet connection
+        /// </summary>
+        /// <returns></returns>
         public static bool HasInternetConnection()
         {
             try

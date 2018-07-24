@@ -8,6 +8,9 @@ using AddressProvider.Models.TargetLock;
 
 namespace AddressProvider
 {
+    /// <summary>
+    /// Data model with information about address requested
+    /// </summary>
     public class AddressData
     {
         public AddressData()

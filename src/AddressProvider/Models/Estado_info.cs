@@ -10,7 +10,9 @@ namespace AddressProvider.Models
     {
         public Estado_info()
         {
- 
+            area_km2 = "";
+            codigo_ibge = "";
+            nome = "";
         }
         [DataMember()]
         public string area_km2 { get; set; }

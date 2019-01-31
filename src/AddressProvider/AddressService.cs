@@ -124,17 +124,27 @@ namespace AddressProvider
         private static AddressData GetAddressDataPostmon(string addressDataUri)
         {
             var httpRequest = HttpWebRequest.Create(addressDataUri) as HttpWebRequest;
+            httpRequest.ContentType = "application/json";
+            
+
+            var latin = Encoding.GetEncoding("latin");
 
             using (HttpWebResponse response = httpRequest.GetResponse() as HttpWebResponse)
             {
                 if (response.StatusCode != HttpStatusCode.OK)
-                    throw new Exception(response.StatusDescription);
-
-                using (var reader = new StreamReader(response.GetResponseStream()))
+                    throw new Exception(response.StatusDescription);                
+                
+                using (var reader = new StreamReader(response.GetResponseStream(),latin))
                 {
                     DataContractJsonSerializer dataContractSerializer = new DataContractJsonSerializer(typeof(PostmonModel));
                     var jsonText = reader.ReadToEnd();
                     var jsonSetting = new JsonSerializerSettings();
+                    var bytes = Encoding.Default.GetBytes(jsonText);
+                    foreach (var item in Encoding.GetEncodings())
+                    {
+                        var result = Encoding.Convert(Encoding.Default, item.GetEncoding(), bytes);
+                        var text = item.GetEncoding().GetString(result);
+                    }
                     jsonSetting.ContractResolver = new CamelCasePropertyNamesContractResolver();
                     var postmonModel = JsonConvert.DeserializeObject<PostmonModel>(jsonText, jsonSetting);
                     var addressData = new AddressData();

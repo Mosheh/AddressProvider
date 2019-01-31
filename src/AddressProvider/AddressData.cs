@@ -28,11 +28,11 @@ namespace AddressProvider
             if (StateInf == null)
                 throw new Exception("Modelo do estado inválido");
             this.Complementary = model.complemento;
-            this.Neighborhood = model.bairro;
-            this.City = model.cidade;
-            this.Street = model.logradouro;
-            this.ZipCode = model.cep;
-            this.State = model.estado;
+            this.Neighborhood = model.bairro==null? "":model.bairro;
+            this.City = model.cidade == null ? "" : model.cidade; ;
+            this.Street = model.logradouro == null ? "": model.logradouro;
+            this.ZipCode = model.cep == null ? "" : model.cep; ;
+            this.State = model.estado==null ? "": model.estado;
             if (model.estado_info == null)
                 model.estado_info = new Estado_info();
 

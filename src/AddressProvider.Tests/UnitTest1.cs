@@ -18,6 +18,14 @@ namespace AddressProvider.Test
         }
 
         [TestMethod]
+        public void TestarRequisiçãoCEPGoianiaDeEndereçoPostmon()
+        {
+            var service = new AddressService(ServiceEnum.Postmon);
+            var address = service.GetAddress("74770390");
+            Assert.AreEqual("Rua T 61", address.Street);
+        }
+
+        [TestMethod]
         public void TestarRequisiçãoDeEndereçoViaCEP()
         {
             var service = new AddressService(ServiceEnum.ViaCEP);

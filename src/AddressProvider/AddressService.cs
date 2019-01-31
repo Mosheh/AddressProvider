@@ -1,4 +1,5 @@
-﻿using AddressProvider.Models;
+﻿using AddressProvider.Extensions;
+using AddressProvider.Models;
 using AddressProvider.Models.TargetLock;
 using AddressProvider.Models.ViaCEP;
 using Newtonsoft.Json;
@@ -123,29 +124,25 @@ namespace AddressProvider
 
         private static AddressData GetAddressDataPostmon(string addressDataUri)
         {
-            var httpRequest = HttpWebRequest.Create(addressDataUri) as HttpWebRequest;
-            httpRequest.ContentType = "application/json";
+            var httpRequest = HttpWebRequest.Create(addressDataUri) as HttpWebRequest;         
             
-
-            var latin = Encoding.GetEncoding("latin");
-
             using (HttpWebResponse response = httpRequest.GetResponse() as HttpWebResponse)
             {
                 if (response.StatusCode != HttpStatusCode.OK)
-                    throw new Exception(response.StatusDescription);                
-                
-                using (var reader = new StreamReader(response.GetResponseStream(),latin))
-                {
+                    throw new Exception(response.StatusDescription);
+
+                var r = response.ContentEncoding;
+
+                using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
+                {   
                     DataContractJsonSerializer dataContractSerializer = new DataContractJsonSerializer(typeof(PostmonModel));
-                    var jsonText = reader.ReadToEnd();
+                    var jsonText = reader.ReadToEnd().ToString();
                     var jsonSetting = new JsonSerializerSettings();
-                    var bytes = Encoding.Default.GetBytes(jsonText);
-                    foreach (var item in Encoding.GetEncodings())
-                    {
-                        var result = Encoding.Convert(Encoding.Default, item.GetEncoding(), bytes);
-                        var text = item.GetEncoding().GetString(result);
-                    }
+                    var str = Conversions.ReplaceUnicodeCaractersToUTF8(jsonText);
+
                     jsonSetting.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+                    
                     var postmonModel = JsonConvert.DeserializeObject<PostmonModel>(jsonText, jsonSetting);
                     var addressData = new AddressData();
                     addressData.FillBy(postmonModel);

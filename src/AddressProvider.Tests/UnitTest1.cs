@@ -22,7 +22,9 @@ namespace AddressProvider.Test
         {
             var service = new AddressService(ServiceEnum.Postmon);
             var address = service.GetAddress("74770390");
-            Assert.AreEqual("Rua T 61", address.Street);
+            Assert.AreEqual("Rua Quintino Vargas", address.Street);
+            Assert.AreEqual("Vila Concórdia", address.Neighborhood);
+            Assert.AreEqual("Goiânia", address.City);
         }
 
         [TestMethod]
@@ -142,5 +144,5 @@ namespace AddressProvider.Test
         }
 
 
-    }
+    }    
 }

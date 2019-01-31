@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AddressProvider.Models
 {
-    [DataContract]
+    //[DataContract]
     public class PostmonModel
     {
         public PostmonModel()

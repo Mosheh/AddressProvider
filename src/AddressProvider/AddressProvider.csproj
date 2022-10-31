@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>AddressProvider</PackageId>
     <Title>Address Provider</Title>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.4</Version>
     <Authors>Moisés José Miranda</Authors>
     <Company>Mosheh</Company>
     <Description>Get address information via zip code. Support for United States Of American, Brazil</Description>
@@ -17,15 +17,14 @@
     <PackageReleaseNotes>Get address information.
 .net standard and core</PackageReleaseNotes>
     <PackageTags>Get address information via zip code with support for United States Of American and Brazil</PackageTags>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>1.0.0.4</AssemblyVersion>
+    <FileVersion>1.0.0.4</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\AddressProvider.xml</DocumentationFile>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
   </ItemGroup>
 
 </Project>

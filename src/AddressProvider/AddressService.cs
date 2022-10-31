@@ -2,8 +2,6 @@
 using AddressProvider.Models;
 using AddressProvider.Models.TargetLock;
 using AddressProvider.Models.ViaCEP;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -83,7 +81,7 @@ namespace AddressProvider
                 {
                     DataContractJsonSerializer dataContractSerializer = new DataContractJsonSerializer(typeof(ViaCEPModel));
                     var jsonText = reader.ReadToEnd();
-                    var targetModel = JsonConvert.DeserializeObject<TargetLockAddressModel>(jsonText);
+                    var targetModel =  System.Text.Json.JsonSerializer.Deserialize<TargetLockAddressModel>(jsonText);
 
                     var addressData = new AddressData();
                     addressData.FillBy(targetModel);
@@ -114,7 +112,7 @@ namespace AddressProvider
                     var jsonText = reader.ReadToEnd();
 
 
-                    var viaCEPModel = JsonConvert.DeserializeObject<ViaCEPModel>(jsonText);
+                    var viaCEPModel = System.Text.Json.JsonSerializer.Deserialize<ViaCEPModel>(jsonText);
                     var addressData = new AddressData();
                     addressData.FillBy(viaCEPModel);
                     return addressData;
@@ -137,13 +135,10 @@ namespace AddressProvider
                 {   
                     DataContractJsonSerializer dataContractSerializer = new DataContractJsonSerializer(typeof(PostmonModel));
                     var jsonText = reader.ReadToEnd().ToString();
-                    var jsonSetting = new JsonSerializerSettings();
+                    
                     var str = Conversions.ReplaceUnicodeCaractersToUTF8(jsonText);
 
-                    jsonSetting.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-                    
-                    var postmonModel = JsonConvert.DeserializeObject<PostmonModel>(jsonText, jsonSetting);
+                    var postmonModel = System.Text.Json.JsonSerializer.Deserialize<PostmonModel>(jsonText);
                     var addressData = new AddressData();
                     addressData.FillBy(postmonModel);
                     return addressData;

@@ -27,8 +27,8 @@ namespace AddressProvider
             Service = service;
             this.CheckInternetConnection = checkInternetConnection;
             ServicesUri = new Dictionary<ServiceEnum, string>();
-            ServicesUri.Add(ServiceEnum.Postmon, "http://api.postmon.com.br/v1/cep/{0}");
-            ServicesUri.Add(ServiceEnum.ViaCEP, "http://viacep.com.br/ws/{0}/json");
+            ServicesUri.Add(ServiceEnum.Postmon, "https://api.postmon.com.br/v1/cep/{0}");
+            ServicesUri.Add(ServiceEnum.ViaCEP, "https://viacep.com.br/ws/{0}/json");
             ServicesUri.Add(ServiceEnum.TargetLock, "https://api.targetlock.io/v1/post-code/{0}");
         }
         /// <summary>

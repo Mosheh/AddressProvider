@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>AddressProvider</PackageId>
     <Title>Address Provider</Title>
-    <Version>1.0.0.5</Version>
+    <Version>1.0.0.6</Version>
     <Authors>Moisés José Miranda</Authors>
     <Company>Imagine Software</Company>
     <Description>Get address information via zip code. Support for United States Of American, Brazil</Description>

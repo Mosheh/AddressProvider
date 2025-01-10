@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
@@ -99,26 +100,22 @@ namespace AddressProvider
 
         private AddressData GetAddressDataViaCEP(string addressDataUrl)
         {
-            var httpRequest = HttpWebRequest.Create(addressDataUrl) as HttpWebRequest;
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
-            using (HttpWebResponse response = httpRequest.GetResponse() as HttpWebResponse)
+            using (HttpClient client = new HttpClient(clientHandler))
             {
-                if (response.StatusCode != HttpStatusCode.OK)
-                    throw new Exception(response.StatusDescription);
+                var response = client.GetStringAsync(addressDataUrl).GetAwaiter().GetResult();
+                var viaCEPModel = System.Text.Json.JsonSerializer.Deserialize<ViaCEPModel>(response);
 
-                using (var reader = new StreamReader(response.GetResponseStream()))
-                {
-                    DataContractJsonSerializer dataContractSerializer = new DataContractJsonSerializer(typeof(ViaCEPModel));
-                    var jsonText = reader.ReadToEnd();
-
-
-                    var viaCEPModel = System.Text.Json.JsonSerializer.Deserialize<ViaCEPModel>(jsonText);
-                    var addressData = new AddressData();
-                    addressData.FillBy(viaCEPModel);
-                    return addressData;
-                }
+                var addressData = new AddressData();
+                addressData.FillBy(viaCEPModel);
+                return addressData;
             }
         }
+
+
+
 
         private static AddressData GetAddressDataPostmon(string addressDataUri)
         {

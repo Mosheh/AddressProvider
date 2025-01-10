@@ -1,30 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>AddressProvider</PackageId>
-    <Title>Address Provider</Title>
-    <Version>1.0.0.6</Version>
-    <Authors>Moisés José Miranda</Authors>
-    <Company>Imagine Software</Company>
-    <Description>Get address information via zip code. Support for United States Of American, Brazil</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Copyright>BR GAAP Empresarial (c)</Copyright>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/Mosheh/AddressProvider/wiki</PackageProjectUrl>
-    <PackageIconUrl>https://image.ibb.co/eKO3eT/addresslocation.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/Mosheh/AddressProvider</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Get address information.
-.net standard and core</PackageReleaseNotes>
-    <PackageTags>Get address information via zip code with support for United States Of American and Brazil</PackageTags>
-    <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\AddressProvider.xml</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="9.0.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackageId>AddressProvider</PackageId>		
+		<Title>Address Provider</Title>
+		<Version>1.0.0.9</Version>
+		<Authors>Moisés José Miranda</Authors>
+		<Company>Imagine Software</Company>
+		<Description>Get address information via zip code. Support for United States Of American, Brazil</Description>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>BR GAAP Empresarial (c)</Copyright>
+		<PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/Mosheh/AddressProvider/wiki</PackageProjectUrl>
+		<PackageIconUrl>https://image.ibb.co/eKO3eT/addresslocation.png</PackageIconUrl>
+		<RepositoryUrl>https://github.com/Mosheh/AddressProvider</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>
+			Get address information.
+			.net standard and core
+		</PackageReleaseNotes>
+		<PackageTags>Get address information via zip code with support for United States Of American and Brazil</PackageTags>
+		<AssemblyVersion>1.0.0.9</AssemblyVersion>
+		<FileVersion>1.0.0.9</FileVersion>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\netstandard2.0\AddressProvider.xml</DocumentationFile>
+	</PropertyGroup>	
+	<ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="9.0.0" />
+	</ItemGroup>
 
 </Project>
